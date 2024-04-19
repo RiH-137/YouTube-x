@@ -9,9 +9,9 @@ from youtube_transcript_api import YouTubeTranscriptApi
 
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
-prompt="""You are Yotube video summarizer. You will be taking the transcript text
+prompt="""You are Yotube video summarizer. You are capable of summerize any kind of video whether it is an educational or comedy or even it is a news or movies. You will be taking the transcript text
 and summarizing the entire video and providing the important summary in points
-within 250 words. Please provide the summary of the text given here:  """
+within 250 to 500 words. Please provide the summary of the text given here:  """
 
 
 ## getting the transcript data from yt videos
@@ -38,7 +38,7 @@ def generate_gemini_content(transcript_text,prompt):
     return response.text
 ##initialize our streamlit app
 
-st.set_page_config(page_title="YTx  📝🎥🔍📚", layout="centered", initial_sidebar_state="expanded")
+st.set_page_config(page_title="You Tube se padhai  📝🎥🔍📚", layout="centered", initial_sidebar_state="expanded")
 #abou the author
 if st.button("About the author"):
     # Display information about the author or code description
@@ -73,8 +73,8 @@ Let's build, innovate, and explore the limitless possibilities of technology tog
 
 
 
-st.header("YTx-YouTube Transcript to Detailed Notes Converter 📝🎥🔍📚")
-
+st.header("You Tube is padhai-- Transcript to Detailed Notes Converter 📝🎥🔍📚")
+st.writr("Only able to work with those videos which have transcript available")
 
 
 
@@ -90,8 +90,13 @@ if youtube_link:
 if st.button("Get Detailed Notes"):
     if not youtube_link:
         st.error("Please enter a valid YouTube video link")
-    else:
+    if youtube_link:
         transcript_text=extract_transcript_details(youtube_link)
+    elif youtube_link:
+        transcript_text=extract_transcript_details(youtube_link)
+        st.error("It is not an educational video. Please enter a valid educational video link")
+    else:
+        st.error("It is not an educational video. Please enter a valid educational video link")
 
     if transcript_text:
         summary=generate_gemini_content(transcript_text,prompt)
