@@ -74,7 +74,7 @@ Let's build, innovate, and explore the limitless possibilities of technology tog
 
 
 st.header("You Tube is padhai-- Transcript to Detailed Notes Converter 📝🎥🔍📚")
-st.writr("Only able to work with those videos which have transcript available")
+st.write("Only able to work with those videos which have transcript available")
 
 
 
@@ -86,15 +86,15 @@ if youtube_link:
     video_id = youtube_link.split("=")[1]
     print(video_id)
     st.image(f"http://img.youtube.com/vi/{video_id}/0.jpg", use_column_width=True)
-
+    
 if st.button("Get Detailed Notes"):
     if not youtube_link:
         st.error("Please enter a valid YouTube video link")
     if youtube_link:
         transcript_text=extract_transcript_details(youtube_link)
-    elif youtube_link:
-        transcript_text=extract_transcript_details(youtube_link)
-        st.error("It is not an educational video. Please enter a valid educational video link")
+
+        transcript_text!=extract_transcript_details(youtube_link)
+        st.error("Enter the valid youtube video link that contains the transcript.")
     else:
         st.error("It is not an educational video. Please enter a valid educational video link")
 
