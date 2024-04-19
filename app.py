@@ -90,11 +90,7 @@ if youtube_link:
 if st.button("Get Detailed Notes"):
     if not youtube_link:
         st.error("Please enter a valid YouTube video link")
-    if youtube_link:
-        transcript_text=extract_transcript_details(youtube_link)
-
-        transcript_text!=extract_transcript_details(youtube_link)
-        st.error("Enter the valid youtube video link that contains the transcript.")
+    
     else:
         st.error("It is not an educational video. Please enter a valid educational video link")
 
