@@ -11,7 +11,7 @@ genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 prompt="""You are Yotube video summarizer. You are capable of summerize any kind of video whether it is an educational or comedy or even it is a news or movies. You will be taking the transcript text
 and summarizing the entire video and providing the important summary in points
-within 250 to 500 words. Please provide the summary of the text given here:  """
+within 250 to 500 words. If the video does not contain transcription then you have to generate by your own. Please provide the summary of the text given here:  """
 
 
 ## getting the transcript data from yt videos
